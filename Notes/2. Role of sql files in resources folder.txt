@@ -1,0 +1,14 @@
+=> Role of sql file in resources folder:
+
+1. Role of schema.sql:
+- Defines the database schema (tables, constraints, indexes).
+- Spring Boot automatically executes this file at startup if it’s present in the resources folder.
+
+2. Role of data.sql
+- Provides initial data population for the database.
+- Spring Boot runs this file after schema.sql (so the tables already exist).
+- Commonly used for inserting sample data, lookup values, or test records.
+
+Note: We can use different names instead of schema.sql and data.sql, but then we must configure Spring Boot to recognize them. For that in application.properties:
+spring.sql.init.schema-locations=classpath:/db/myschema.sql
+spring.sql.init.data-locations=classpath:/db/mydata.sql

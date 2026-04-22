@@ -1,0 +1,20 @@
+=> Instead of using .properties file for application, we can use YAML format for configuration. For 
+that we need to do following:
+1. Change the extension of application.properties file to application.yml
+2. Now, we can define the properties as:
+
+server:
+    port: 8080  -> This will be read as server.port
+spring:
+    datasource:
+        url: jdbc:h2:mem:testdb
+        username: sa
+        password: ''
+    h2:
+        console:
+            enabled: true
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: update
+        show-sql: true  -> This will be read as spring.jpa.show-sql
